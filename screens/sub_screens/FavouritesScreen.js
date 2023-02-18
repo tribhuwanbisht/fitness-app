@@ -1,7 +1,21 @@
 import { StyleSheet, View, Text } from "react-native";
+import IconButton from "./../../components/ui/IconButton";
+import { useContext } from "react";
+import { AuthContext } from "./../../store/auth-context";
 
 function FavouritesScreen() {
-  return <Text style={styles.title}>Favourites Screen</Text>;
+  const authCtx = useContext(AuthContext);
+  return (
+    <View>
+      <Text style={styles.title}>Favourites Screen</Text>
+      <IconButton
+        icon="exit"
+        size={24}
+        color={"#f51e06"}
+        onPress={authCtx.logout}
+      ></IconButton>
+    </View>
+  );
 }
 
 export default FavouritesScreen;
